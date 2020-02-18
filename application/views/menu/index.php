@@ -7,6 +7,8 @@
 
 <div class="row">
 	<div class="col-lg-6">
+
+		<a href="" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Tambahkan Menu Baru</a>
 			
 
 		<table class="table table-striped">
@@ -15,16 +17,27 @@
 		      <th scope="col">#</th>
 		      <th scope="col">Menu</th>
 		      <th scope="col">Action</th>
-		      <th scope="col">Handle</th>
+		    
 		    </tr>
 		  </thead>
 		  <tbody>
+			
+			<?php $a=1; ?>
+			<?php foreach ($menu as $men): ?>
+
 		    <tr>
-		      <th scope="row">1</th>
-		      <td>Mark</td>
-		      <td>Otto</td>
-		      <td>@mdo</td>
+		      <th scope="row"><?= $a++; ?></th>
+		      <td><?= $men['menu']; ?></td>
+		      <td>
+		      	<a href="" class="badge badge-primary">edit</a>
+		      	<a href="" class="badge badge-danger">delete</a>
+
+		      </td>
+		      
 		    </tr>
+
+			<?php endforeach; ?>
+
 		  </tbody>
 		</table>
 
@@ -41,4 +54,37 @@
 </div>
 <!-- End of Main Content -->
 
-      
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Halaman Tambah Menu</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    <form action="<?= base_url('menu/addmenu') ?>" method="post">
+    <div class="modal-body">
+
+
+   	<div class="form-group">
+	    <input type="text" class="form-control" id="menu" placeholder="namamenu" e>
+  	</div>
+        	
+
+
+
+       
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Tambah</button>
+    </form>
+      </div>
+    </div>
+  </div>
+</div>
