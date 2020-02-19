@@ -9,7 +9,7 @@
 
 
 <div class="row">
-	<div class="col-lg-6">
+	<div class="col-lg">
 
 		<?= form_error('menu', '<div class="alert alert-danger" role="alert">', '</div>'); ?>
 
@@ -17,26 +17,35 @@
 
 
 
-		<a href="" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">Tambahkan Menu Baru</a>
+		<a href="" class="btn btn-info" data-toggle="modal" data-target="#Submenu">Tambahkan Sub Menu Baru</a>
 			
 
 		<table class="table table-striped">
 		  <thead>
 		    <tr>
 		      <th scope="col">#</th>
+		      <th scope="col">Title</th>	      
 		      <th scope="col">Menu</th>
-		      <th scope="col">Action</th>
+		      <th scope="col">url</th>
+		      <th scope="col">icon</th>
+		      <th scope="col">active</th>
+		      <th scope="col">action</th>
+
 		    
 		    </tr>
 		  </thead>
 		  <tbody>
 			
 			<?php $a=1; ?>
-			<?php foreach ($menu as $men): ?>
+			<?php foreach ($subMenu as $sub): ?>
 
 		    <tr>
 		      <th scope="row"><?= $a++; ?></th>
-		      <td><?= $men['menu']; ?></td>
+		      <td><?= $sub['title']; ?></td>
+		      <td><?= $sub['menu_id']; ?></td>
+		      <td><?= $sub['url']; ?></td>
+		      <td><?= $sub['icon']; ?></td>
+		      <td><?= $sub['is_active']; ?></td>
 		      <td>
 		      	<a href="" class="badge badge-primary">edit</a>
 		      	<a href="" class="badge badge-danger">delete</a>
